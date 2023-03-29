@@ -1,6 +1,5 @@
 package com.example.doglist
 
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
@@ -43,7 +42,7 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener,
             .build()
     }
 
-    @SuppressLint("NotifyDataSetChanged")
+
     private fun searchByName(query: String) {
         CoroutineScope(Dispatchers.IO).launch {
             val call = getRetrofit().create(APIService::class.java).getDogsByBreeds("$query/images")
