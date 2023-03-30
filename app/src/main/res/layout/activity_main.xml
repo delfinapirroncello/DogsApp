@@ -6,22 +6,20 @@
     android:id="@+id/viewRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/material_dynamic_primary90"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <!-- SearchView para buscar perros -->
     <androidx.appcompat.widget.SearchView
         android:id="@+id/svDogs"
         android:layout_width="0dp"
+        android:visibility="visible"
         android:layout_height="wrap_content"
         android:background="@color/material_dynamic_primary95"
         android:hint="@string/buscar_raza_de_perro"
         android:textColorHint="@android:color/black"
-
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        app:queryHint="@string/buscar_raza_de_perro"
+        android:layout_margin="16dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,5 +37,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
