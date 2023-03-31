@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
-import android.widget.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.doglist.databinding.ActivityMainBinding
@@ -14,18 +13,20 @@ import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener,
-    androidx.appcompat.widget.SearchView.OnQueryTextListener {
+class MainActivity : AppCompatActivity(), androidx.appcompat.widget.SearchView.OnQueryTextListener {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var adapter: DogsAdapter
     private val dogImages = mutableListOf<String>()
+    private lateinit var adapter: DogsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.svDogs.setOnQueryTextListener(this)
+
+        val searchView = findViewById<androidx.appcompat.widget.SearchView>(R.id.svDogs)
+        searchView.setOnQueryTextListener(this)
+
         initRecyclerView()
     }
 
@@ -33,7 +34,6 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener,
         adapter = DogsAdapter(dogImages)
         binding.rvDogs.layoutManager = LinearLayoutManager(this)
         binding.rvDogs.adapter = adapter
-
     }
 
     private fun getRetrofit(): Retrofit {
@@ -72,13 +72,13 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener,
     }
 
     override fun onQueryTextSubmit(query: String?): Boolean {
-        if (!query.isNullOrEmpty()){
+        if (!query.isNullOrEmpty()) {
             searchByName(query.lowercase())
         }
-        return true
+        return false
     }
 
     override fun onQueryTextChange(newText: String?): Boolean {
-        return true
+        return false
     }
 }
