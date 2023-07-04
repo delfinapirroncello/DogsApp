@@ -20,4 +20,4 @@ Pantallas de Dogs List App
 <img src = "https://user-images.githubusercontent.com/116289346/228973737-ee8d4327-1f21-42be-b47b-2e0228e8b41b.png" height = "500">
 
 # Video de la busqueda de Bulldog:
-<video src = "https://user-images.githubusercontent.com/116289346/228973768-0b9625c4-c054-4b11-af39-1f9b40e8009a.webm" height = "500"></video>
+<img src = "https://user-images.githubusercontent.com/116289346/228973768-0b9625c4-c054-4b11-af39-1f9b40e8009a.webm" height = "500px"/>
